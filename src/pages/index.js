@@ -34,7 +34,7 @@ export default function Home() {
   const [apiKeyInput, setApiKey] = useState('');
   const [model, setModel] = useState('tts-1');
   const [inputText, setInputText] = useState('');
-  const [voice, setVoice] = useState('alloy');
+  const [voice, setVoice] = useState('onyx');
   const [speed, setSpeed] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sliderValue, setSliderValue] = useState(1);
@@ -122,7 +122,7 @@ export default function Home() {
 
 
   const handleInputChange = (e) => {
-    if (e.target.value.length <= 4096) {
+    if (e.target.value.length <= 409600) {
       setInputText(e.target.value);
     }
   };
@@ -197,11 +197,11 @@ export default function Home() {
                   value={inputText}
                   onChange={handleInputChange}
                   resize="vertical"
-                  maxLength={4096}
+                  maxLength={409600}
                   borderColor="black"
                 />
                 <Box textAlign="right" fontSize="sm">
-                  {inputText.length} / 4096
+                  {inputText.length} / 409600
                 </Box>
               </FormControl>
 
@@ -220,10 +220,10 @@ export default function Home() {
                     _hover={{ borderColor: 'gray.400' }} // Optional: style for hover state
                   >
                     {/* List of supported voices */}
+                    <option value='onyx'>Onyx</option>
                     <option value='alloy'>Alloy</option>
                     <option value='echo'>Echo</option>
                     <option value='fable'>Fable</option>
-                    <option value='onyx'>Onyx</option>
                     <option value='nova'>Nova</option>
                     <option value='shimmer'>Shimmer</option>
                   </Select>
