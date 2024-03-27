@@ -160,7 +160,7 @@ export default function Home() {
                   <Input
                     id='api-key'
                     placeholder='Enter your OpenAI API key'
-                    type='password'
+                    type='text'
                     value={apiKeyInput}
                     onChange={(e) => setApiKey(e.target.value)}
                     variant="outline"
