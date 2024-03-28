@@ -122,7 +122,7 @@ export default function Home() {
 
 
   const handleInputChange = (e) => {
-    if (e.target.value.length <= 409600) {
+    if (e.target.value.length <= 262144) {
       setInputText(e.target.value);
     }
   };
@@ -198,12 +198,12 @@ export default function Home() {
                   value={inputText}
                   onChange={handleInputChange}
                   resize="vertical"
-                  maxLength={409600}
+                  maxLength={262144}
                   borderColor="black"
                 />
                 <Box textAlign="right" fontSize="sm">
   <Text>
-    {inputText.length} / 409600
+    {inputText.length} / 262144
   </Text>
   <Text>
     Cost: $
