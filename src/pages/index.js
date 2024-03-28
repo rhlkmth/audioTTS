@@ -202,8 +202,29 @@ export default function Home() {
                   borderColor="black"
                 />
                 <Box textAlign="right" fontSize="sm">
-                  {inputText.length} / 409600
-                </Box>
+  <Text>
+    {inputText.length} / 409600
+  </Text>
+  <Text>
+    Cost: $
+    {(() => {
+      const length = inputText.length;
+      if (model === 'tts-1') {
+        if (length <= 999) return 0.015;
+        else if (length <= 1000) return 0.030;
+        else if (length <= 2500) return 0.045;
+        else if (length <= 4096) return 0.075;
+        else return (length * 0.015 / 1000).toFixed(3);
+      } else {
+        if (length <= 999) return 0.030;
+        else if (length <= 1000) return 0.060;
+        else if (length <= 2500) return 0.090;
+        else if (length <= 4096) return 0.150;
+        else return (length * 0.03 / 1000).toFixed(3);
+      }
+    })()}
+  </Text>
+</Box>
               </FormControl>
 
               <HStack width="full" justifyContent="space-between">
